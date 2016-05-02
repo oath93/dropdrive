@@ -17,13 +17,17 @@
 	
 
     <br />
-    </p>
-    	<form>
-		<input type="text" name="filename" class="search" placeholder="Search for Files...">
-        <br />
-        <br />
-	    <input style=margin-left:45%; type="submit" value="Search" class="button" >
+    <p>
+    	<form method="post" action="search.php?go" id="searchform">
+		    <input type="text" name="filename" class="search" placeholder="Search for Files...">
+            <br />
+            <br />
+	        <input style="margin-left:45%"; type="submit" value="Search" class="button">
 		</form>
+    <?php
+
+    ?>
+    </p>
 	<br />
     <br />
     <br />
