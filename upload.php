@@ -16,8 +16,7 @@
     <p>
         <?php
         include"connect.php";
-        $target_dir = "uploads/";
-        $target_file = $target_dir.basename($_FILES['upload']['name']);
+        $target_dir = "uploads/".$_SESSION['Username']."/";
         if(isset($_POST['submit'])){
             $ext_start = $nameLength = strlen($_FILES['upload']['name']);
             $captured_name = $_FILES['upload']['name'];
@@ -39,8 +38,17 @@
             $tmpName  = $_FILES['upload']['tmp_name'];
             $fileSize = $_FILES['upload']['size'];
             $fileType = $_FILES['upload']['type'];
-
-            echo $fileName." ".$extension;
+            $target_file = $target_dir.$fileName;
+            echo $fileName.".".$extension;
+            if(!is_dir($target_dir)){
+                mkdir($target_dir);
+            }
+            if (move_uploaded_file($_FILES["upload"]["tmp_name"], $target_file.".".$extension)) {
+                echo "The file ". $fileName. " has been uploaded.";
+            }
+            else{
+                echo "The file could not be uploaded.";
+            }
         }
         ?>
     </p>
