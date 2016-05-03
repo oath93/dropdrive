@@ -1,9 +1,10 @@
 <?php
+if(!isset($_SESSION)) {
+    session_start();
+}
 $user = 'root';
 $pass = '';
-$db = 'testdb';
+$db = 'dropdrive_db';
 
-$dbconnection = new mysqli('localhost', $user, $pass, $db) or die("Unable to Connect");
-echo "Connected";
-
+$connection = new mysqli('localhost', $user, $pass, $db) or die("Unable to Connect");
 ?>

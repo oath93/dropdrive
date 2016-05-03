@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
 <head>
     <link rel="stylesheet", type="text/css", href="base.css">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -14,16 +14,16 @@
 <div id = "main_content" style=margin-top: 5%;">
 <br />
 <p>
+    <h2>Upload a File!</h2>
     <form action="upload.php" method="post" enctype="multipart/form-data">
-        Select file to upload:</br></br>
-        <input type="hidden" name="MAX_FILE_SIZE" value="2000000">
-        <input type="file" name="fileToUpload" id="upload" class="button">
-        </br>
-        </br>
+        Enter a file name: <br/>
+        <input type = "text" name = "fileName" id="fileName" style="width:50%">
+        <br/><br/>
+        Select file to upload:<br/>
+        <input type="file" name="upload" id="upload" class="button">
+        <br/><br/>
         <input type="submit" value="Upload file" name="submit" class="button">
-        </br></br>
-        <input type="text" placeholder="File Name..." name="file_name">
-        </br></br>
+        <br/><br/>
     </form>
 </p>
 <br />

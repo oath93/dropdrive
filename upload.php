@@ -15,12 +15,32 @@
     <br />
     <p>
         <?php
-        if(isset($_POST['upload']) && $_FILES['upload']['size'] > 0){
-            $fileName = $_FILES['upload']['name'];
+        include"connect.php";
+        $target_dir = "uploads/";
+        $target_file = $target_dir.basename($_FILES['upload']['name']);
+        if(isset($_POST['submit'])){
+            $ext_start = $nameLength = strlen($_FILES['upload']['name']);
+            $captured_name = $_FILES['upload']['name'];
+            $found_ext_start = false;
+            do{
+                if($captured_name[$ext_start-1] != '.')
+                {
+                    $ext_start --;
+                }else{
+                    $found_ext_start = true;
+                }
+            }while(!$found_ext_start);
+            $extension = substr($captured_name, $ext_start, $nameLength);
+            if($_POST['fileName'] != null) {
+                $fileName = $_POST['fileName'];
+            }else{
+                $fileName = substr($captured_name, 0, $ext_start - 1);
+            }
             $tmpName  = $_FILES['upload']['tmp_name'];
             $fileSize = $_FILES['upload']['size'];
             $fileType = $_FILES['upload']['type'];
-            echo $fileName.$tmpName.$fileSize.$fileType;
+
+            echo $fileName." ".$extension;
         }
         ?>
     </p>
