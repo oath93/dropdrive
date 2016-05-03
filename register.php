@@ -10,21 +10,22 @@
 	  $pass = ($_POST['password1']);
 	  $email = ($_POST['email']);
 	  
-	  if(!mysqli_select_db($dbconnection, $db))
+	  if(!mysqli_select_db($connection, $db))
 	  {
 		  echo "Database not found!<br>";
 		  die();
 	  }
 	  $query="insert into user_tbl(fname, lname, password, user_id) values('$fname', '$lname','$pass', '$uid')";
-	  if(mysqli_query($dbconnection, $query))
+	  if(mysqli_query($connection, $query))
 	  {
 		  echo "Insertion successful<br>";
+		  header('Location: userpage.php');
 	  }
 	  else
 	  {
-		  echo "Insertion error: " . mysqli_error($dbconnection) . "<br>";
+		  echo "Insertion error: " . mysqli_error($connection) . "<br>";
 	  }
-	  mysqli_close($dbconnection);
+	  mysqli_close($connection);
 	  die()
 	?>
 </html>
