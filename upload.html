@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet", type="text/css", href="base.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Main Page</title>
+</head>
+
+<body>
+<div class="login">
+
+</div>
+
+<div id = "main_content" style=margin-top: 5%;">
+<br />
+<p>
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+        Select file to upload:</br></br>
+        <input type="hidden" name="MAX_FILE_SIZE" value="2000000">
+        <input type="file" name="fileToUpload" id="upload" class="button">
+        </br>
+        </br>
+        <input type="submit" value="Upload file" name="submit" class="button">
+        </br></br>
+        <input type="text" placeholder="File Name..." name="file_name">
+        </br></br>
+    </form>
+</p>
+<br />
+<br />
+<br />
+<br />
+</div>
+</body>
+</html>
