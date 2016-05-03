@@ -17,29 +17,23 @@
 <?php
 include "connect.php";
 if(isset($_POST['filename'])) {
-    if (isset($_GET['go'])) {
-        if (preg_match("/^[  a-zA-Z]+/", $_POST['filename'])) {
-            $file_name = $_POST['filename'];
-            echo "Search: " . $file_name . "<br>";
-		}
-		else
-		{
-			//echo "preg_match<br>";
-			die();
-		}
-      }
-      else
-	  {
-		  //echo "isset(_GET['go'])<br>";
-		  die();
-      }
-    }
+    if (preg_match("/^[  a-zA-Z]+/", $_POST['filename'])) {
+      $file_name = $_POST['filename'];
+      echo "Search: " . $file_name . "<br>";
+	}
 	else
 	{
-		echo "isset POST<br>";
-		die();
-	}
-	
+	  //echo "preg_match<br>";
+	  die();
+		
+    }
+  }
+  else
+  {
+	echo "isset POST<br>";
+	die();
+  }
+
 	$query = "SELECT user_id, fileName FROM file_tbl WHERE fileName LIKE '%$file_name%'";
 	//echo $query . "<br>";
             $result = mysqli_query($connection, $query);
