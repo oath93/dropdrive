@@ -7,11 +7,30 @@
 </head>
 
 <body>
-
+    <?php
+	  
+	?>
+	<script>
+		  function validatePassword() {
+            var pass1 = document.getElementById("pass1").value;
+            var pass2 = document.getElementById("pass2").value;
+            var ok = true;
+            if (pass1 != pass2) {
+              //alert("Passwords Do not match");
+              document.getElementById("pass1").style.borderColor = "#E34234";
+              document.getElementById("pass2").style.borderColor = "#E34234";
+              ok = false;
+            }
+            else {
+              alert("Passwords Match!!!");
+            }
+            return ok;
+          }
+	</script>
 <div id="main_content">
     <br />
     <h2 style=margin-left:35%;>Sign Up</h2>
-    	<form style=margin-left:35%;>
+    	<form style=margin-left:35% action="register.php" method="post" onsubmit="return validatePassword()" >
         First Name*: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input style=margin-left:6px; type="text" name="fname"/>
         <br />
         Last Name*: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="lname"/>
@@ -20,17 +39,16 @@
         <br />
         User ID*:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input style=margin-left:2px; type="text" name ="UID"/>
         <br/>
-        Password*: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="password" name="password1"/>
+        Password*: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input id="pass1" type="password" name="password1"/>
         <br/>
-        Re-Enter Password*: <input style=margin-left:2px; type="password" name="password2"/>
+        Re-Enter Password*: <input id="pass2" style=margin-left:2px; type="password" name="password2"/>
         <br/>
         <br/>
 	    <input style=margin-left:13%; type="submit" value="Submit" class="button" >
 		</form>
 	<br />
     <br />
-
-
+   
 
 </div>
 
