@@ -24,6 +24,7 @@
 	  else
 	  {
 		  echo "Insertion error: " . mysqli_error($connection) . "<br>";
+		  header('location: sign_up.html');
 	  }
 	  mysqli_close($connection);
 	  die()
