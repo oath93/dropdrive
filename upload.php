@@ -39,6 +39,11 @@
             }else{
                 $fileName = substr($captured_name, 0, $ext_start - 1);
             }
+            if(empty($_POST['public'])){
+                $public = false;
+            }else{
+                $public = true;
+            }
             $tmpName  = $_FILES['upload']['tmp_name'];
             $fileSize = $_FILES['upload']['size'];
             $fileType = $_FILES['upload']['type'];
@@ -57,6 +62,7 @@
     </p>
 
     <p style='margin-left: 25%;'>Would you like to upload another file?
+    <br/>
     <br/>
     <a href="upload.html" class="button">Upload Another</a>
         <a href="userpage.php" class="button">Return to User Page</a>
