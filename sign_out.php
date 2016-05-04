@@ -1,5 +1,7 @@
 <?php
-session_start();
+include "connect.php";
+session_unset();
 session_destroy();
+mysqli_close($connection);
 header("Location: index.php");
 ?>

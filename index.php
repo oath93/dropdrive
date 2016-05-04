@@ -4,18 +4,23 @@
     <link rel="stylesheet", type="text/css", href="base.css">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Main Page</title>
-    <?php include "connect.php";?>
+
 </head>
 
 
 <body>
+<a href="index.php"><img style="margin-left: 45%; margin-top:5%;" src="logo.png"></a>
 <div class="login">
 
 </div>
 
 <div id = "main_content">
     <?php
-    if(empty($_SESSION['LoggedIn']) && $_SESSION['Username'] == "test_user") {
+    include "connect.php";
+    if(empty($_SESSION['LoggedIn'])){   //If there is no LoggedIn info, set to false
+        $_SESSION['LoggedIn'] = false; 
+    }
+    if(!$_SESSION['LoggedIn']) {
         ?>
         <a href="sign_up.html">
             <div style=float:right; class="button">Sign-Up</div>
@@ -24,7 +29,7 @@
             <div style=float:right;margin-right:3px class="button" class="search">&nbsp Login &nbsp</div>
         </a>
         <?php
-    }elseif($_SESSION['LoggedIn']) {
+    }else{
         ?>
         <a href="sign_out.php">
             <div style=float:right; class="button">Log Out</div>

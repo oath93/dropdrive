@@ -9,11 +9,12 @@
 
 
 <body>
+<a href="index.php"><img style="margin-left: 45%; margin-top:5%;" src="logo.png"></a>
 <div class="login">
 
 </div>
 
-<div id = "main_content" style="margin-top:5%;">
+<div id = "main_content" style="margin-top:-5%;">
 <?php
 include "connect.php";
 if(isset($_POST['filename'])) {

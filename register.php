@@ -20,6 +20,8 @@
 	  {
 		  echo "Insertion successful<br>";
 		  header('Location: userpage.php');
+		  $_SESSION['Username'] = $uid;
+		  $_SESSION['LoggedIn'] = true;
 	  }
 	  else
 	  {
