@@ -17,15 +17,13 @@
     	else
     	{
     	    //should only find exactly one user, try again
-            //header("Location: login.html");
-            echo "Should only find exactly one user";
+            header("Location: login.html");
     	}
     }
     else
     {
     	  //username or password wasn't entered, try again
-          //header("Location: login.html");
-        echo "Didn't have data entered";
+          header("Location: login.html");
     }
     mysqli_close($connection);
 ?>
