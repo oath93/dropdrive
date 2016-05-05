@@ -28,7 +28,7 @@ if(!$_SESSION['LoggedIn']){
       </a>
 
    <br />
-   <p>
+   <p> 
 
    </p>
    <br />
