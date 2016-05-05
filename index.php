@@ -34,6 +34,9 @@
         <a href="sign_out.php">
             <div style=float:right; class="button">Log Out</div>
         </a>
+        <a href="userpage.php">
+            <div style="float:right;" class="button">User Page</div>
+        </a>
         <?php
     }?>
 
