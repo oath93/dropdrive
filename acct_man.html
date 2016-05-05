@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Main Page</title>
+    <link href="base.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<a href="index.php"><img style="margin-left: 45%; margin-top:5%;" src="logo.png"></a>
+<div id="main_content" style="margin-top:0%;">
+    <h2 style="margin-left:35%;">Account Management</h2>
+    <h4 style="margin-left:35%;">Enter any changes you wish to make.</h4>
+    <form style="margin-left:35%" action="register.php" method="post" onsubmit="return validatePassword()" >
+        First Name:
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input style="margin-left:6px;" type="text" name="fname"/>
+        <br />
+        Last Name:
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="lname"/>
+        <br />
+        Email Address:
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input style="margin-left:3px;" type="text" name="email"/>
+        <br />
+        New Password:
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input style="margin-left:2px;" type="text" name ="newPass"/>
+        <br/>
+        Re-Enter New Password:
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <input id="pass1" type="password" name="newPass2"/>
+        <br/>
+        <br/>
+        <h4>Verify your password to make changes</h4>
+        Old Password:
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input id="pass2" type="password" name="password"/>
+        <br/>
+        <br/>
+        <input style="margin-left:18%;" type="submit" value="Submit Changes" class="button" >
+    </form>
+    <br />
+    <br />
+
+
+</div>
+
+</body>
+</html>
