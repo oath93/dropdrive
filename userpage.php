@@ -1,5 +1,7 @@
 <?php  //Don't allow people who aren't logged in
 include "connect.php";
+if(isset($_SESSION['name']))
+  echo "Welcome, " . $_SESSION['name'] . "<br/>";
 if(!$_SESSION['LoggedIn']){
    header("Location: index.php");
 }
@@ -21,18 +23,19 @@ if(!$_SESSION['LoggedIn']){
 
 <div id = "main_content">
       <a href="sign_out.php">
-         <div style="float:right;" class="button">Log Out</div>
+         <div style=float:right; class="button">Log Out</div>
       </a>
-      <a href="upload.html">
+	  <a href="upload.html">
           <div style="float:right; margin-right:3px;" class="button">Upload a File</div>
       </a>
       <a href="acct_man.html">
-         <div style="float:right; margin-right:3px;" class="button">Account Management</div>
+         <div style="float:right;" class="button">Account Management</div>
       </a>
-      <?php
+	  
+    <?php
       include "connect.php";
       //echo $_SESSION['LoggedIn'];
-      echo "<br/>";
+      echo "<br/><br/><br/>";
 
       if(!$_SESSION['LoggedIn']){
       header("Location: index.php");
@@ -45,14 +48,17 @@ if(!$_SESSION['LoggedIn']){
       {
 	    echo "File Name: " . $row['fileName'] . " Uploaded: " . $row['upload_date'] . " Public?: ";
 	    if($row['public_flag'])
-		  echo "Yes<br/>";
+		  echo "Yes<br/><br/>";
 	    else
-		  echo "No<br/>";
+		  echo "No<br/><br/>";
       }
     mysqli_close($connection);
 ?>
+
+
+
    <br />
-   <p> 
+   <p>
 
    </p>
    <br />
@@ -62,3 +68,4 @@ if(!$_SESSION['LoggedIn']){
 </div>
 </body>
 </html>
+

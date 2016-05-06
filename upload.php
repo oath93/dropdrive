@@ -19,6 +19,8 @@
         if(empty($_SESSION['Username'])){
             $_SESSION['Username'] = "Test_User";
             $_SESSION['LoggedIn'] = true;
+			$sql = "Insert into user_tbl(user_id, password, fname, lname) Values('Test_User', '', 'Tester', 'TEST')";
+			mysqli_query($connection, $sql);
         }
         $target_dir = "uploads/".$_SESSION['Username']."/";
         if(isset($_POST['submit'])){
@@ -40,9 +42,9 @@
                 $fileName = substr($captured_name, 0, $ext_start - 1);
             }
             if(empty($_POST['public'])){
-                $public = false;
+                $public = 0;
             }else{
-                $public = true;
+                $public = 1;
             }
             $tmpName  = $_FILES['upload']['tmp_name'];
             $fileSize = $_FILES['upload']['size'];
@@ -52,8 +54,8 @@
                 mkdir($target_dir);
             }
             if (move_uploaded_file($_FILES["upload"]["tmp_name"], $target_file.".".$extension)) {
-                echo "<h3 style='margin-left: 25%;'>The file ". $fileName.".".$extension." has been uploaded!</h3>";
-			    //Get the date
+                echo "<h3 style='margin-left: 25%;'>The file ". $fileName.".".$extension." has been uploaded!</h3><br/>";
+				//Get the date
 				$query= "Select CurDate() As date";
 				if($result = mysqli_query($connection, $query))
 				{

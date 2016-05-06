@@ -6,7 +6,7 @@
     	$username= ($_POST['username']);
     	$pass= ($_POST['password']);
 	
-    	$query = "SELECT user_id FROM user_tbl WHERE user_id = '$username' AND password = '$pass'";
+    	$query = "SELECT user_id, fname FROM user_tbl WHERE user_id = '$username' AND password = '$pass'";
         $result = mysqli_query($connection, $query);
         if(mysqli_num_rows($result) == 1)
     	{

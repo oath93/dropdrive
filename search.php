@@ -35,7 +35,7 @@ if(isset($_POST['filename'])) {
 	die();
   }
 
-	$query = "SELECT user_id, fileName FROM file_tbl WHERE fileName LIKE '%$file_name%' AND public_flag != 0";
+	$query = "SELECT user_id, fileName FROM file_tbl WHERE fileName LIKE '%$file_name%' And public_flag != 0";
 	//echo $query . "<br>";
             $result = mysqli_query($connection, $query);
 			if(mysqli_num_rows($result) > 0)
