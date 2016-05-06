@@ -10,8 +10,10 @@
         $result = mysqli_query($connection, $query);
         if(mysqli_num_rows($result) == 1)
     	{
+			$info = mysqli_fetch_assoc($result);
             $_SESSION['LoggedIn'] = true;
             $_SESSION['Username'] = $username;
+			$_SESSION['name'] = $info["fname"];
     	    header("Location: userpage.php");
     	}
     	else
@@ -26,4 +28,5 @@
           header("Location: login.html");
     }
     mysqli_close($connection);
+	die();
 ?>

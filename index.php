@@ -44,6 +44,13 @@
     }?>
 
     <br />
+	
+	<?php
+	  $query = "SELECT COUNT(*) AS num_files FROM file_tbl WHERE public_flag != 0";
+	  $result= mysqli_query($connection, $query);
+	  $count = mysqli_fetch_assoc($result);
+	  echo "<p style='margin-left: 35%;'>There are currently " . $count['num_files'] . " files in the system!<p><br />";
+	?>
     <p>
     	<form method="post" action="search.php" id="searchform">
 		    <input type="text" name="filename" class="search" placeholder="Search for Files...">

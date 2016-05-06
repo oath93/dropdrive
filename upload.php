@@ -53,6 +53,50 @@
             }
             if (move_uploaded_file($_FILES["upload"]["tmp_name"], $target_file.".".$extension)) {
                 echo "<h3 style='margin-left: 25%;'>The file ". $fileName.".".$extension." has been uploaded!</h3>";
+			    //Get the date
+				$query= "Select CurDate() As date";
+				if($result = mysqli_query($connection, $query))
+				{
+				  $date= mysqli_fetch_assoc($result);
+				}
+				else
+				{
+					echo "Couldn't get date: ". mysqli_error($connection);
+				}
+				//Inserting info into the database
+				$query = "Insert Into file_tbl(fileName, filePath, public_flag, upload_date, user_id) Values('$fileName', '$target_dir', $public, '". $date['date']. "', '" . $_SESSION['Username'] ."')";
+				if(mysqli_query($connection, $query))
+				{
+					echo "<p style='margin-left: 25%;'>File information in database.</p>";
+					if(isset($_POST['type']))
+					{
+						$fileForm = $_POST['type'];
+						if($fileForm == "video")
+						{
+							$query="Insert Into video_file_tbl(fileName, user_id) Values('$fileName', '".$_SESSION['Username']."')";
+							if(mysqli_query($connection, $query))
+						    {
+								echo "Insertion successful";
+							}
+							else
+								echo "Error: ". mysqli_error($connection);
+						}
+						elseif($fileForm =="text")
+						{
+							$query="Insert Into text_file_tbl(fileName, user_id, file_format) Values('$fileName', '".$_SESSION['Username'] ."', '$extension')";
+							if(mysqli_query($connection, $query))
+						    {
+								echo "Insertion successful";
+							}
+							else
+								echo "Error: ". mysqli_error($connection);
+						}	
+					}
+				}
+				else
+				{
+				  echo "Insertion failed: ". mysqli_error($connection);	
+				}
             }
             else{
                 echo "The file could not be uploaded.";
