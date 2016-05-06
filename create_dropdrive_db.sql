@@ -39,13 +39,12 @@ create table file_accessors_tbl(user_id varchar(32) not null references user_tbl
 								
 create table video_file_tbl(user_id varchar(32) not null references user_tbl(user_id) on delete cascade on update cascade,
                        fileName varchar(32) not null references file_tbl(fileName)  on delete cascade on update cascade,
-					   duration int not null,
 					   primary key (user_id, fileName)
 					   );
 					   
 create table text_file_tbl(user_id varchar(32) not null references user_tbl(user_id)  on delete cascade on update cascade,
                        fileName varchar(32) not null references file_tbl(fileName) on delete cascade on update cascade,
-					   file_format char(3) not null,
+					   file_format char(4) not null,
 					   primary key (user_id, fileName)
 					   );
 					   
