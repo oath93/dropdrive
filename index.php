@@ -23,19 +23,22 @@
     if(!$_SESSION['LoggedIn']) {
         ?>
         <a href="sign_up.html">
-            <div style=float:right; class="button">Sign-Up</div>
+            <div style="float:right;" class="button">Sign-Up</div>
         </a>
         <a href="login.html">
-            <div style=float:right;margin-right:3px class="button" class="search">&nbsp Login &nbsp</div>
+            <div style="float:right;margin-right:3px" class="button" class="search">&nbsp Login &nbsp</div>
         </a>
         <?php
     }else{
         ?>
         <a href="sign_out.php">
-            <div style=float:right; class="button">Log Out</div>
+            <div style="float:right;" class="button">Log Out</div>
+        </a>
+        <a href="upload.html">
+            <div style="float:right; margin-right:3px;" class="button">Upload a File</div>
         </a>
         <a href="userpage.php">
-            <div style="float:right;" class="button">User Page</div>
+            <div style="float:right; margin-right:3px;" class="button">User Page</div>
         </a>
         <?php
     }?>

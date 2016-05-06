@@ -21,10 +21,13 @@ if(!$_SESSION['LoggedIn']){
 
 <div id = "main_content">
       <a href="sign_out.php">
-         <div style=float:right; class="button">Log Out</div>
+         <div style="float:right;" class="button">Log Out</div>
+      </a>
+      <a href="upload.html">
+          <div style="float:right; margin-right:3px;" class="button">Upload a File</div>
       </a>
       <a href="acct_man.html">
-         <div style="float:right;" class="button">Account Management</div>
+         <div style="float:right; margin-right:3px;" class="button">Account Management</div>
       </a>
 
    <br />
