@@ -49,6 +49,7 @@
             $tmpName  = $_FILES['upload']['tmp_name'];
             $fileSize = $_FILES['upload']['size'];
             $fileType = $_FILES['upload']['type'];
+            $fileName = $fileName.'.'.$extension;
             $target_file = $target_dir.$fileName;
             if(!is_dir($target_dir)){
                 mkdir($target_dir);

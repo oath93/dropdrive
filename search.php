@@ -20,13 +20,12 @@ include "connect.php";
 if(isset($_POST['filename'])) {
     if (preg_match("/^[  a-zA-Z]+/", $_POST['filename'])) {
       $file_name = $_POST['filename'];
-      echo "Search: " . $file_name . "<br>";
+      echo "Search: " . $file_name . "<br/><br/>";
 	}
 	else
 	{
 	  //echo "preg_match<br>";
 	  die();
-		
     }
   }
   else
@@ -40,9 +39,14 @@ if(isset($_POST['filename'])) {
             $result = mysqli_query($connection, $query);
 			if(mysqli_num_rows($result) > 0)
 			{
+                echo '<hr>';
 				while($row = mysqli_fetch_assoc($result))
 				{
-					echo "User: " . $row["user_id"] . " - File Name: " . $row["fileName"]."<br>";
+					echo "<strong>User: </strong>" . $row["user_id"] . " - <strong>File Name: </strong>"
+                        . $row["fileName"]."<br>";
+                    echo '<a class=button style=\'float:right; margin-top: -15px;\' href="download.php?filename='.$row["user_id"]
+                    .'/'.$row['fileName'].'">Download</a>';
+                    echo'<br/><hr><br/>';
 				}
 			}
 			else

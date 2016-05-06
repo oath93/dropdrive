@@ -1,7 +1,5 @@
 <?php  //Don't allow people who aren't logged in
 include "connect.php";
-if(isset($_SESSION['name']))
-  echo "Welcome, " . $_SESSION['name'] . "<br/>";
 if(!$_SESSION['LoggedIn']){
    header("Location: index.php");
 }
@@ -29,10 +27,12 @@ if(!$_SESSION['LoggedIn']){
           <div style="float:right; margin-right:3px;" class="button">Upload a File</div>
       </a>
       <a href="acct_man.html">
-         <div style="float:right;" class="button">Account Management</div>
+         <div style="float:right; margin-right:3px;" class="button">Account Management</div>
       </a>
 	  
     <?php
+      if(isset($_SESSION['name']))
+        echo "Welcome, " . $_SESSION['name'] . "<br/>";
       include "connect.php";
       //echo $_SESSION['LoggedIn'];
       echo "<br/><br/><br/>";
@@ -43,16 +43,18 @@ if(!$_SESSION['LoggedIn']){
 
       $sql = "Select fileName, upload_date, public_flag From file_tbl Where user_id = '" .$_SESSION['Username'] ."'";
       $result = mysqli_query($connection, $sql);
-  
+      echo "<hr><br/>";
       while($row = mysqli_fetch_assoc($result))
       {
-	    echo "File Name: " . $row['fileName'] . " Uploaded: " . $row['upload_date'] . " Public?: ";
+	    echo "<p style='margin-top:-3px;'><strong>File Name: </strong>" . $row['fileName'] . " <strong>Uploaded: </strong>"
+            . $row['upload_date'] . " <strong>Public?: </strong>";
 	    if($row['public_flag'])
 		  echo "Yes ";
 	    else
 		  echo "No ";
 	  
-	    echo '<a href="delete.php?filename='.$row['fileName'].'">   Delete</a> <br/><br/>';
+	    echo '<a class=button style=\'float:right; margin-top: -5px;\'href="delete.php?filename='.$row['fileName'].'">Delete</a></p>';
+          echo'<br/><hr><br/>';
       }
     mysqli_close($connection);
 ?>

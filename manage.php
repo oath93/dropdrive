@@ -64,7 +64,7 @@
 	}
 	
 	sleep(1);
-	header("Location: http://localhost/userpage.php");
+	header("Location: userpage.php");
 	die();
   }
 ?>
