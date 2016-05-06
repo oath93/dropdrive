@@ -54,8 +54,8 @@
             if(!is_dir($target_dir)){
                 mkdir($target_dir);
             }
-            if (move_uploaded_file($_FILES["upload"]["tmp_name"], $target_file.".".$extension)) {
-                echo "<h3 style='margin-left: 25%;'>The file ". $fileName.".".$extension." has been uploaded!</h3><br/>";
+            if (move_uploaded_file($_FILES["upload"]["tmp_name"], $target_file)) {
+                echo "<h3 style='margin-left: 25%;'>The file ". $fileName." has been uploaded!</h3><br/>";
 				//Get the date
 				$query= "Select CurDate() As date";
 				if($result = mysqli_query($connection, $query))
