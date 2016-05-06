@@ -48,9 +48,11 @@ if(!$_SESSION['LoggedIn']){
       {
 	    echo "File Name: " . $row['fileName'] . " Uploaded: " . $row['upload_date'] . " Public?: ";
 	    if($row['public_flag'])
-		  echo "Yes<br/><br/>";
+		  echo "Yes ";
 	    else
-		  echo "No<br/><br/>";
+		  echo "No ";
+	  
+	    echo '<a href="delete.php?filename='.$row['fileName'].'">   Delete</a> <br/><br/>';
       }
     mysqli_close($connection);
 ?>
