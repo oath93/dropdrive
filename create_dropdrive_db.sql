@@ -22,6 +22,7 @@ create table user_payment_tbl(user_id varchar(32) primary key references user_tb
 							  
 create table file_tbl(user_id varchar(32) not null,
                       fileName varchar(32) not null,
+                      filePath varchar(255) not null,
 					  last_access date,
 					  upload_date date not null,
 					  public_flag binary(1) default 0,
